@@ -6604,7 +6604,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.landscape);
+        } else {
+            setContentView(R.layout.activity_main);
+        }
 
 
         resultTextView = findViewById(R.id.result_text_view);
